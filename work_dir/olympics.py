@@ -9,6 +9,7 @@ from file_worker import open_file, write_file
 #     events.tsv -total 1972 -output file.txt
 #     events.tsv -overall Ukraine Ireland Canada
 #     events.tsv -overall Ukraine Ireland Canada -output file.txt
+#     events.tsv -interactive
 parser = argparse.ArgumentParser()
 parser.add_argument("filename", help="Ask for input file")
 parser.add_argument("-medals", help="Ask for medals of team", nargs="+")
@@ -20,6 +21,9 @@ parser.add_argument("-interactive", help="Enter interactive mode", action="store
 args = parser.parse_args()
 
 if not args.interactive:
+    if args.overall:
+        for i in range(len(args.overall)):
+            args.overall[i] = args.overall[i].title()
     all_info = open_file(args)
 
 
@@ -55,8 +59,10 @@ def output():
 
 if args.interactive:
     country = input("Enter team name or code: ")
-    args.overall = country
+    args.overall = country.title()
     all_info = open_file(args)
-    interactive_statistics(args, all_info, country)
+    stats = interactive_statistics(args, all_info, country)
+    if args.output is not None:
+        write_file(args, all_info, stats)
 else:
     output()
