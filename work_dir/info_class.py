@@ -13,7 +13,7 @@ class Info:
         self.medal14 = medal14
 
     def return_stat(self):
-        return f"{self.name1} - {self.sport12} - {self.medal14}"
+        return f"{self.name1} - {self.event13} - {self.medal14}"
 
     def medal_to_num(self):
         if self.medal14 == "Gold":
