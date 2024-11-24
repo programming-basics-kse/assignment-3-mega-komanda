@@ -1,28 +1,28 @@
 class Info:
-    def __init__(self, id0, name1, team6, NOC7, games8, year9, season10, city11, sport12, event13, medal14):
-        self.id0 = id0
-        self.name1 = name1
-        self.team6 = team6
-        self.NOC7 = NOC7
-        self.games8 = games8
-        self.year9 = year9
-        self.season10 = season10
-        self.city11 = city11
-        self.sport12 = sport12
-        self.event13 = event13
-        self.medal14 = medal14
+    def __init__(self, id, name, team, NOC, games, year, season, city, sport, event, medal):
+        self.id = id
+        self.name = name
+        self.team = team
+        self.NOC = NOC
+        self.games = games
+        self.year = year
+        self.season = season
+        self.city = city
+        self.sport = sport
+        self.event = event
+        self.medal = medal
 
     def return_stat(self):
-        return f"{self.name1} - {self.event13} - {self.medal14}"
+        return f"{self.name} - {self.event} - {self.medal}"
 
     def medal_to_num(self):
-        if self.medal14 == "Gold":
+        if self.medal == "Gold":
             return 1
-        if self.medal14 == "Silver":
+        if self.medal == "Silver":
             return 2
-        if self.medal14 == "Bronze":
+        if self.medal == "Bronze":
             return 3
         return 0
 
     def __str__(self):
-        return f"{self.id0}, {self.name1}, {self.team6}, {self.NOC7}, {self.games8}, {self.year9}, {self.season10}, {self.city11}, {self.sport12}, {self.event13}, {self.medal14}"
+        return f"{self.id}, {self.name}, {self.team}, {self.NOC}, {self.games}, {self.year}, {self.season}, {self.city}, {self.sport}, {self.event}, {self.medal}"
